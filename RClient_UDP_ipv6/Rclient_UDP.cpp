@@ -218,7 +218,7 @@ int main(int argc, char *argv[]) {
 				sprintf(temp_buffer,"PACKET %d ",counter);  //create packet header with Sequence number
 				//counter++;
 				strcat(temp_buffer,send_buffer);   //append data to packet header
-				printf("%s <-- this is string before CRC\n\n", temp_buffer);
+				//printf("%s <-- this is string before CRC\n\n", temp_buffer);
 				CRCresult=CRCpolynomial(temp_buffer); //making hex out of the packet
 				CRCresult=~CRCresult; // inverting
 				CRCresult=CRCresult&0xffff;

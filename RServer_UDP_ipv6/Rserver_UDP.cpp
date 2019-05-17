@@ -139,7 +139,7 @@ void extractTokens(char *str,  char *CRC, char *command, int &packetNumber, char
 	char * pch;
      
   int tokenCounter=0;
-  printf ("Splitting string \"%s\" into tokens:\n\n",str);
+ // printf ("Splitting string \"%s\" into tokens:\n\n",str);
   
   while (1)
   {
@@ -339,7 +339,7 @@ int main(int argc, char *argv[]) {
 			printf("Server saved data_received.txt \n");//you have to manually check to see if this file is identical to file1_Windows.txt
 			printf("Closing the socket connection and Exiting...\n");
 			break;
-		}/* else if (strcmp(command,"PACKET")!=0) {
+		} /*else if (strcmp(command,"PACKET")!=0) {
 						sprintf(send_buffer,"ACK %d \r\n",lineCounter);
 			
 						//send ACK ureliably
@@ -365,16 +365,16 @@ int main(int argc, char *argv[]) {
 			printf("RECEIVED --> %s \n",receive_buffer);
 		
 			CRCreceived=stoi(CRCstr, nullptr, 16); //CRCstring to CRChex
-			printf("%X <--- that is CRC received\n\n",CRCreceived );
+			//printf("%X <--- that is CRC received\n\n",CRCreceived );
 			stringForCRC(packetForCRC,command,counter,data);
-			printf("%s <--this is supposed to be packet for CRC\n\n",packetForCRC);
+			//printf("%s <--this is supposed to be packet for CRC\n\n",packetForCRC);
 			CRCdata = CRCpolynomial(packetForCRC); //making server's own CRC
 			CRCdata=CRCdata&0xffff;
-			printf("%X <--- that is CRC server made\n\n",CRCdata ); 
-			printf("%X <--- that is CRC server made but inverted\n\n",(~CRCdata) );
+			//printf("%X <--- that is CRC server made\n\n",CRCdata ); 
+			//printf("%X <--- that is CRC server made but inverted\n\n",(~CRCdata) );
 			CRCresult = CRCdata + CRCreceived;
 			CRCresult=CRCresult&0xffff;
-			printf("%X <--- that is CRC final\n\n",CRCresult );		
+			//printf("%X <--- that is CRC final\n\n",CRCresult );		
 		
 			if (CRCresult == 0xffff )  {
 				//sscanf(receive_buffer, "PACKET %d",&counter);
